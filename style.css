@@ -1,0 +1,95 @@
+/* Base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Preview box */
+#image {
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+  background-color: #ddd;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+figure {
+  margin: 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+figure:hover {
+  transform: scale(1.05);
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Tablet */
+@media (min-width: 772px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  figure {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .gallery figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  figure {
+    border-radius: 0;
+  }
+
+  .gallery figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  figure {
+    transition: none;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+  }
+
+  figure {
+    background-color: #333;
+    color: #f8e71c;
+    border-color: #000;
+  }
+}
